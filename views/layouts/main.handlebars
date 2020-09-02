@@ -1,41 +1,28 @@
 <html>
-<head>
-<title>Noise Tracker</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<head>
+		<title>Noise Logger</title>
+		<link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
+		<style type="text/css">
 fieldset {
 	display: block;
-	margin: 20px 0;
+	margin: 3em 0;
+	border: 0;
 }
 
-label {
-	display: block;
-	margin: 20px 0;
+.hidden {
+	display: none;
 }
+		</style>
 
-label > span {
-	width: 40%;
-	display: block;
-	float: left;
-}
-
-label > input[type=text] {
-	display: block;
-	width: 50%;
-	font-size: 1.3rem;
-}
-
-span.radio-button {
-	display: inline-block;
-	margin-right: 1em;
-}
-</style>
-
-</head>
-<body>
-{{{body}}}
-<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
-<script src="/js/logger.js?{{r}}"></script>
-</body>
+	</head>
+	<body>
+		{{{body}}}
+		<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+		<script src="/semantic/semantic.min.js"></script>
+		{{#each scripts}}
+		<script src="{{this}}"></script>
+		{{/each}}
+	</body>
 </html>

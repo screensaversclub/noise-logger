@@ -1,78 +1,130 @@
-<h1>Noise Logger <a href="/chart">View Chart</a></h1>
+<div class="ui text container" style="margin: 5em 0">
+	<h1 class="ui header dividing">Noise Logger <a class="ui small button basic" href="/log/view">View Collected Data</a></h1>
 
-<p>context please read change.org thing</p>
+	<p>
+		This is a noise logger to support the petition at <a href="https://www.change.org/p/rsaf-interruption-of-daily-life-due-to-sounds-of-military-airplanes">change.org</a>, a grassroots effort to consolidate feedback and quantitative data to build a case for reducing/mitigating noise from military aircrafts operating out of Paya Lebar Airbase. <a href="https://www.change.org/p/rsaf-interruption-of-daily-life-due-to-sounds-of-military-airplanes">Read more about this effort</a>. 
+	</p>
 
-<form action="/" method="post">
-<fieldset>
-	<small>Your device will remember your input in these fields next time.</small>
-	<label for="name"><span>Name</span>
-	<input type="text" name="name">
-	</label>
+	<form action="/" method="post" class="ui large form">
 
-	<label for="location"><span>Location/Block No</span>
-	<input type="text" name="location">
-	</label>
-</fieldset>
+		<fieldset class="">
 
-<fieldset>
-	<label for="datetime"><span>Time</span>
-	<input type="text" name="datetime" disabled>
-	</label>
+			<h2 class="ui">Identity</h2>
 
-	<label><span>Duration</span></label>
-	<br>
-	<span class="radio-button">
-	<input type="radio" name="duration" value="< 1 min"> &lt;1 min
-	</span>
+			<p>
+				Your device will remember your input in these fields next time. <br>This information is used only to correlate your submitted data.
+			</p>
 
-	<span class="radio-button">
-	<input type="radio" name="duration" value="2-5 mins"> 2-5 mins
-	</span>
+			<div class="two fields">
 
-	<span class="radio-button">
-	<input type="radio" name="duration" value="5-10 mins"> 5-10 mins
-	</span>
+				<div class="ui field">
+					<label for="name"><span>Name (pseudonym ok)</span>
+						<input type="text" name="name" placeholder="Mr. Tan">
+					</label>
+				</div>
+
+				<div class="ui field">
+					<label for="location"><span>Location/Block No</span>
+						<input type="text" name="location" placeholder="300 Sengkang Heights">
+					</label>
+				</div>
+
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<h2 class="ui">Log Incident</h2>
+			<div class="ui field">
+				<label for="datetime"><span>Time</span>
+					<input type="text" name="datetime" disabled>
+				</label>
+				<input type="hidden" name="truedatetime">
+			</div>
+
+			<div class="ui stackable grid">
+
+				<div class="row">
+					<div class="eight wide column">
+
+						<div class="ui field">
+							<label><span>Duration</span></label>
+							<input type="text" name="duration" disabled placeholder="Click start to start time">
+						</div>
+
+						<div class="ui field">
+							<button class="ui labeled icon button hidden" data-action="stop-watch"><i class="stop icon"></i> Stop</button>
+							<button class="ui labeled icon button" data-action="start-watch"><i class="play icon"></i> Start</button>
+						</div>
+					</div>
+
+					<div class="eight wide column">
+
+						<div class="ui field">
+							<label><span>Loudness Rating</span></label>
+
+							<div class="five fields large">
+
+								<div class="field">
+									<div class="ui radio checkbox">
+										<input type="radio" name="loudness" value="1"><label>1</label>
+									</div>
+								</div>
+
+								<div class="field">
+									<div class="ui radio checkbox">
+										<input type="radio" name="loudness" value="2"><label>2</label>
+									</div>
+								</div>
+
+								<div class="field">
+									<div class="ui radio checkbox">
+										<input type="radio" name="loudness" value="3"><label>3</label>
+									</div>
+								</div>
+
+								<div class="field">
+									<div class="ui radio checkbox">
+										<input type="radio" name="loudness" value="4"><label>4</label>
+									</div>
+								</div>
+
+								<div class="field">
+									<div class="ui radio checkbox">
+										<input type="radio" name="loudness" value="5"><label>5</label>
+									</div>
+								</div>
+
+							</div>
 
 
-	<span class="radio-button">
-	<input type="radio" name="duration" value=">10 mins"> &gt; 10 mins
-	</span>
+							<div class="ui segment">
+								<h5>Loudness Reference:</h5>
+								<ol>
+									<li>Telephone ringing</li>
+									<li>Power tools, drilling, renovation </li>
+									<li>Loud motorcycle speeding</li>
+									<li>Loud rock concert</li>
+									<li>Discomfort &amp; pain in ear</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+		</fieldset>
 
-	5-10s 
-	11-30s
-	60s
-	>60s
+		<fieldset class="ui grid centered">
+			<div class="row">
+			<div class="ui positive message hidden confirmation">
+				<div class="header">
+					Thank you
+				</div>
+				<p>Your submission has been received</p>
+			</div>
+			</div>
+			<div class="row">
+			<input type="submit" class="ui primary button massive" value="Submit">
+			</div>
 
-
-	<label><span>Loudness</span></label>
-
-	<br>
-	<span class="radio-button">
-	<input type="radio" name="loudness" value="1"> 1
-	</span>
-	<span class="radio-button">
-	<input type="radio" name="loudness" value="2"> 2
-	</span>
-	<span class="radio-button">
-	<input type="radio" name="loudness" value="3"> 3
-	</span>
-	<span class="radio-button">
-	<input type="radio" name="loudness" value="4"> 4
-	</span>
-	<span class="radio-button">
-	<input type="radio" name="loudness" value="5"> 5
-	</span>
-
-	<br>
-	<br>
-	<small>
-	<strong>Loudness Comparison:</strong><br>
-	1 - Telephone ringing<br>
-	2 - Power tools, drilling, renovation <br>
-	3 - Loud motorcycle speeding<br>
-	4 - Loud rock concert<br>
-	5 - Discomfort &amp; pain in ear<br>
-	</small>
-</fieldset>
-<input type="submit" value="Record Noise">
-</form>
+		</fieldset>
+	</form>
+			</div>

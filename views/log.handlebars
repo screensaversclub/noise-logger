@@ -1,0 +1,37 @@
+<div class="ui text container" style="margin: 5em 0">
+	<h1 class="ui header dividing">Noise Logger <a class="ui small button basic" href="/">Submit Data</a></h1>
+
+	<p>
+		This is a noise logger to support the petition at <a href="https://www.change.org/p/rsaf-interruption-of-daily-life-due-to-sounds-of-military-airplanes">change.org</a>, a grassroots effort to consolidate feedback and quantitative data to build a case for reducing/mitigating noise from military aircrafts operating out of Paya Lebar Airbase. <a href="https://www.change.org/p/rsaf-interruption-of-daily-life-due-to-sounds-of-military-airplanes">Read more about this effort</a>. 
+	</p>
+</div>
+
+	<table class="ui compact celled definition table sortable">
+		<thead class="full-width">
+			<tr>
+				<th>Name</th>
+				<th>Location</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Duration</th>
+				<th>Loudness</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			{{#each logs}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{location}}</td>
+				<td>{{parsed_date}}</td>
+				<td>{{parsed_time}}</td>
+				<td>{{duration}}</td>
+				<td>{{loudness}}</td>
+			</tr>
+			{{/each}}
+
+		</tbody>
+
+	</table>
+
