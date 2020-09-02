@@ -1,0 +1,78 @@
+<h1>Noise Logger <a href="/chart">View Chart</a></h1>
+
+<p>context please read change.org thing</p>
+
+<form action="/" method="post">
+<fieldset>
+	<small>Your device will remember your input in these fields next time.</small>
+	<label for="name"><span>Name</span>
+	<input type="text" name="name">
+	</label>
+
+	<label for="location"><span>Location/Block No</span>
+	<input type="text" name="location">
+	</label>
+</fieldset>
+
+<fieldset>
+	<label for="datetime"><span>Time</span>
+	<input type="text" name="datetime" disabled>
+	</label>
+
+	<label><span>Duration</span></label>
+	<br>
+	<span class="radio-button">
+	<input type="radio" name="duration" value="< 1 min"> &lt;1 min
+	</span>
+
+	<span class="radio-button">
+	<input type="radio" name="duration" value="2-5 mins"> 2-5 mins
+	</span>
+
+	<span class="radio-button">
+	<input type="radio" name="duration" value="5-10 mins"> 5-10 mins
+	</span>
+
+
+	<span class="radio-button">
+	<input type="radio" name="duration" value=">10 mins"> &gt; 10 mins
+	</span>
+
+	5-10s 
+	11-30s
+	60s
+	>60s
+
+
+	<label><span>Loudness</span></label>
+
+	<br>
+	<span class="radio-button">
+	<input type="radio" name="loudness" value="1"> 1
+	</span>
+	<span class="radio-button">
+	<input type="radio" name="loudness" value="2"> 2
+	</span>
+	<span class="radio-button">
+	<input type="radio" name="loudness" value="3"> 3
+	</span>
+	<span class="radio-button">
+	<input type="radio" name="loudness" value="4"> 4
+	</span>
+	<span class="radio-button">
+	<input type="radio" name="loudness" value="5"> 5
+	</span>
+
+	<br>
+	<br>
+	<small>
+	<strong>Loudness Comparison:</strong><br>
+	1 - Telephone ringing<br>
+	2 - Power tools, drilling, renovation <br>
+	3 - Loud motorcycle speeding<br>
+	4 - Loud rock concert<br>
+	5 - Discomfort &amp; pain in ear<br>
+	</small>
+</fieldset>
+<input type="submit" value="Record Noise">
+</form>
