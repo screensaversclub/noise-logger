@@ -2,6 +2,9 @@
 	<head>
 		<title>Noise Logger</title>
 		<link rel="stylesheet" type="text/css" href="/semantic/semantic.min.css">
+		{{#each stylesheets}}
+			<link rel="stylesheet" type="text/css" href="{{this}}">
+		{{/each}}
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<style type="text/css">
@@ -22,7 +25,7 @@ fieldset {
 		<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 		<script src="/semantic/semantic.min.js"></script>
 		{{#each scripts}}
-		<script src="{{this}}"></script>
+			<script src="{{this}}"></script>
 		{{/each}}
 	</body>
 </html>

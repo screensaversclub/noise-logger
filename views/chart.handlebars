@@ -1,38 +1,17 @@
 <div class="ui text container" style="margin: 5em 0">
 	<h1 class="ui header dividing">Noise Logger </h1>
 	<a class="ui small button basic" href="/">Submit Data</a>
-	<a class="ui small button basic" href="/log/chart">View Chart</a>
+	<a class="ui small button basic" href="/log/view">View Logs</a>
 	<p>
 		This is a noise logger to support the petition at <a href="https://www.change.org/p/rsaf-interruption-of-daily-life-due-to-sounds-of-military-airplanes">change.org</a>, a grassroot effort to consolidate feedback and quantitative data to build a case for reducing/mitigating noise from military aircrafts operating out of Paya Lebar Airbase. <a href="https://www.change.org/p/rsaf-interruption-of-daily-life-due-to-sounds-of-military-airplanes">Read more about this effort</a>. 
 	</p>
+</div><div class="chart" style="width: 100%; height: 80vh; position: relative;">
+	{{#if date}}
+		<h1>{{date}}</h1>
+	{{/if}}
+<canvas id="canvas"></canvas>
 </div>
 
-	<table class="ui compact celled definition table sortable unstackable">
-		<thead class="full-width">
-			<tr>
-				<th>Name</th>
-				<th>Location</th>
-				<th>Date</th>
-				<th>Time</th>
-				<th>Duration</th>
-				<th>Loudness</th>
-			</tr>
-		</thead>
-
-		<tbody>
-
-			{{#each logs}}
-			<tr>
-				<td>{{name}}</td>
-				<td>{{location}}</td>
-				<td><a href="/log/chart/{{timestamp}}">{{parsed_date}}</a></td>
-				<td>{{parsed_time}}</td>
-				<td>{{duration}}</td>
-				<td>{{loudness}}</td>
-			</tr>
-			{{/each}}
-
-		</tbody>
-
-	</table>
-
+ <script type="text/javascript">
+	 var LOGS = JSON.parse( '{{{passJson logs}}}' );
+ </script>

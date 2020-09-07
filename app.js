@@ -49,23 +49,76 @@ app.get("/log/view", (req, res) => {
 		.lean()
 		.exec()
 		.then((results) => {
-			console.log(results);
-			var logs = results.map(function (r) {
-				var m = moment(r.time);
-				return {
-					name: r.name,
-					location: r.location,
-					parsed_date: m.format("MMM Do YYYY"),
-					parsed_time: m.format("h:mm:ss a"),
-					duration: r.duration,
-					loudness: r.loudness,
-				};
-			});
+			var logs = results
+				.map(function (r) {
+					var m = moment(r.time);
+					return {
+						name: r.name,
+						location: r.location,
+						parsed_date: m.format("MMM Do YYYY"),
+						parsed_time: m.format("h:mm:ss a"),
+						timestamp: m.format("X"),
+						duration: r.duration,
+						loudness: r.loudness,
+					};
+				})
+				.sort(function (a, b) {
+					return b.timestamp - a.timestamp;
+				});
 			res.render("log", {
 				logs,
 				scripts: [
 					"https://semantic-ui.com/javascript/library/tablesort.js",
 					"/js/logview.js",
+				],
+			});
+		})
+		.catch((err) => {
+			res.send({ err });
+		});
+});
+
+app.get(["/log/chart", "/log/chart/:date"], (req, res) => {
+	NoiseLog.find({})
+		.lean()
+		.exec()
+		.then((results) => {
+			var logs = results.map(function (r) {
+				var m = moment(r.time);
+				return {
+					name: r.name,
+					location: r.location,
+					timestamp: r.time,
+					duration: r.duration,
+					loudness: r.loudness,
+				};
+			});
+
+			var filterDate = moment.unix(req.params.date);
+			var date = false;
+
+			if (req.params.date && filterDate) {
+				logs = logs.filter(function (l) {
+					return moment(l.timestamp).isSame(filterDate, "day");
+				});
+				date = filterDate.format("ddd, MMMM Do YYYY");
+			}
+
+			res.render("chart", {
+				logs,
+				date: date,
+				helpers: {
+					passJson: function (a) {
+						return JSON.stringify(a);
+					},
+				},
+				scripts: [
+					"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js",
+					"https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js",
+					"/js/chartview.js",
+				],
+				stylesheets: [
+					"https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css",
 				],
 			});
 		})
