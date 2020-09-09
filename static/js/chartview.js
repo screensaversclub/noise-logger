@@ -44,13 +44,24 @@
 			datasets: myDataset,
 		},
 		options: {
+			tooltips: {
+				callbacks: {
+					label: function(tooltip, data) {
+						var datapoint = data.datasets[tooltip.datasetIndex].data[tooltip.index];
+						var dateLabel = tooltip.xLabel;
+						var labelString = datapoint.name + " / " + dateLabel + " / " + datapoint.duration + "s, loudness: " + datapoint.loudness;
+						return labelString;
+
+					}
+				}
+			},
 			scales: {
 				xAxes: [
 					{
 						type: "time",
 						time: {
 							unit: "hour",
-							round: "hour",
+							round: "minute",
 							tooltipFormat: "ll HH:mm",
 						},
 						scaleLabel: {
